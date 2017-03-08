@@ -67,6 +67,7 @@ setup_params = dict(
     entry_points={
         'console_scripts': ['labctl=lab.app.__main__:main'],
         'labctl': [
+            'envs=lab.app.environments:EnvsLister',
             'show=lab.app.environments:EnvLister',
             'add=lab.app.environments:EnvRegister',
             'rm=lab.app.environments:EnvUnregister',

@@ -25,6 +25,14 @@ def get_items(cmd, parsed_args, entry):
     return (header, rows)
 
 
+class EnvsLister(Lister):
+    "Show all defined environment names"
+    def take_action(self, parsed_args):
+        names = [[name] for provider in self.app.providers
+                 for name in provider.env_names()]
+        return (('name',), names)
+
+
 class EnvLister(Lister):
     "Show an environment"
     log = logging.getLogger(__name__)
